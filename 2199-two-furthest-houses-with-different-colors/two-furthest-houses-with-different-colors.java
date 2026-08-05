@@ -1,31 +1,39 @@
 class Solution {
     public int maxDistance(int[] colors) {
         int n = colors.length;
-        int Fans = 0;
+        // int Fans = 0;
 
-        for(int i=0; i<n; i++){
-           int fistc = colors[i]; 
-           int ans = helper(colors, fistc,i+1 );
-           Fans = Math.max(ans, Fans);
+        // for(int i=0; i<n; i++){
+        //    int fistc = colors[i]; 
+        //    int ans = helper(colors, fistc,i+1 );
+        //    Fans = Math.max(ans, Fans);
 
-        }
+        // }
 
-        return Fans;
-        
-        
-    }
+        // return Fans;
 
-    private int helper(int[] colors, int fistc, int idx){
-        int count =1;
-        int ans = 0;
+        int left = 0, right = 0;
 
-        for(int i=idx; i<colors.length; i++){
-            if(colors[i] != fistc){
-                ans = Math.max(ans, count);
+        for(int i=0; i < n; i++){
+            if(colors[i] != colors[n-1]){
+                left = i;
+                break;
             }
-            count++;
         }
 
-        return ans;
+        for(int i=n-1; i >= 0 ; i--){
+            if(colors[i] != colors[0]){
+                right = i;
+                break;
+            }
+        }
+
+        return Math.max(n-1 - left, right);
+
+
+        
+        
     }
+
+    
 }
