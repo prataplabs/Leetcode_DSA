@@ -1,32 +1,32 @@
 class Solution {
     public int[] rearrangeArray(int[] nums) {
-        List<Integer> pos = new ArrayList<>();
-        List<Integer> neg = new ArrayList<>();
+        ArrayList<Integer> pos = new ArrayList<>();
+        ArrayList<Integer> neg = new ArrayList<>();
 
-        for(int num : nums){
-            if(num < 0){
-               neg.add(num);
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] < 0){
+                neg.add(nums[i]);
             }else{
-                pos.add(num);
+                pos.add(nums[i]);
             }
         }
 
-        int ans[] = new int[nums.length];
-        int j=0;
-        int i=0;
-        while(j < nums.length){
-            ans[j] = pos.get(i);
-            ans[j+1] = neg.get(i);
+        int idx=0;
+        int j =0;
 
-            j=j+2;
-            i++;
+        int[] ans = new int[nums.length];
+
+        for(int i=0; i<nums.length; i++){
+            if(i %2 == 0){
+                ans[i] = pos.get(idx);
+                idx++;
+            }else{
+                ans[i] = neg.get(j);
+                j++;
+            } 
         }
 
         return ans;
-
-
-        
-
-        
+         
     }
 }
