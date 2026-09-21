@@ -16,14 +16,13 @@ class Solution {
 
         int[] ans = new int[nums.length];
 
-        for(int i=0; i<nums.length; i++){
-            if(i %2 == 0){
-                ans[i] = pos.get(idx);
-                idx++;
-            }else{
-                ans[i] = neg.get(j);
-                j++;
-            } 
+        // 
+        while(j < nums.length){
+            ans[j] = pos.get(idx);
+            ans[j+1] = neg.get(idx);
+
+            j=j+2;
+            idx++;
         }
 
         return ans;
