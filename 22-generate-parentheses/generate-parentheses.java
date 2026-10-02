@@ -1,0 +1,22 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList<>();
+        helper(ans, "" , 0, 0, n);
+        return ans;
+        
+    }
+
+    private void helper(List<String> ans, String curr, int open, int close, int n ){
+        if(curr.length() == 2*n){
+            ans.add(curr);
+        }
+
+        if(open < n){
+            helper(ans, curr +"(" , open+1 , close, n);
+        }
+
+        if(close < open){
+            helper(ans, curr+")", open , close+1, n);
+        }
+    }
+}
