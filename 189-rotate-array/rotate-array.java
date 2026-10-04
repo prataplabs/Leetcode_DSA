@@ -8,13 +8,13 @@ class Solution {
         }        
         int j = 0;
         for(int i=nums.length-k ; i <nums.length; i++){
-            if(nums.length > k){
+          
                 
             int temp = nums[i];
             nums[j] = temp;
             j++;
             
-            }
+            
             
         }
         int l =0;
