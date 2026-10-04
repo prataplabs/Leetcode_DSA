@@ -3,7 +3,7 @@ class Solution {
         k = k%nums.length;
         ArrayList<Integer> arr = new ArrayList<>();
 
-        for(int i=0; i< nums.length-k; i++){
+        for(int i=0; i< nums.length- k; i++){
             arr.add(nums[i]);
         }        
         int j = 0;
